@@ -13,6 +13,8 @@ RUN yum update -y && \
     wget https://github.com/robbyrussell/oh-my-zsh/raw/master/tools/install.sh -O - | zsh || true && \
     cp /code/zshrc /root/.zshrc
 
-RUN pip3 install --no-cache-dir -r /code/requirements.txt 
+RUN pip3 install --no-cache-dir -r /code/requirements.txt
+
+ENV PATH "$PATH:/code/xctools/"
 
 CMD ["/bin/sh"]
