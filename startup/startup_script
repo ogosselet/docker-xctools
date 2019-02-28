@@ -32,5 +32,10 @@ echo "Preparing docker XCTOOLS"
 
 git --git-dir $XCTOOLS_DIR/.git --work-tree=$XCTOOLS_DIR checkout -t origin/$XCTOOLS_BRANCH
 
-sh
+# Adding the xctools command
+cd $XCTOOLS_DIR
+chmod +x xctools.py
+ln -s $XCTOOLS_DIR/xctools.py /usr/bin/xctools
+
+
 

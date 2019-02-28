@@ -8,4 +8,5 @@ Shapely==1.6.4.post2
 asciinema==2.0.2
 Python-Deprecated==1.1.0
 prettytable==0.7.2
-thefuck
+thefuck==3.28
+
