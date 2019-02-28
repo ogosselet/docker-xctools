@@ -8,7 +8,7 @@ cd /code
 cd /root
 clear
 figlet xcTools
-figlet -f digital "welcome to xcTools alpa-1"
+figlet -f digital "welcome to xcTools alpha-1"
 echo ""
 xctools --help
 echo ""
