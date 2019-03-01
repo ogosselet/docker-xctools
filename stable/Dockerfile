@@ -16,7 +16,10 @@ RUN yum update -y && \
 
 RUN pip3 install --no-cache-dir -r /code/requirements.txt
 
-RUN git --git-dir xctools/.git --work-tree=xctools checkout -t origin/master
+ENV XCTOOLS_VERSION_TAG v0.0.1
+
+RUN git clone https://github.com/ogosselet/xctools.git xctools && \
+    git --git-dir xctools/.git --work-tree=xctools checkout tags/$XCTOOLS_VERSION_TAG
 
 ENV PATH "$PATH:/code/xctools/"
 
