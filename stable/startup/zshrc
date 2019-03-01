@@ -6,7 +6,7 @@
 cd /root
 clear
 figlet xcTools
-figlet -f digital "welcome to xcTools alpha-1"
+figlet -f digital "welcome to xcTools "$XCTOOLS_VERSION_TAG
 echo ""
 xctools --help
 echo ""

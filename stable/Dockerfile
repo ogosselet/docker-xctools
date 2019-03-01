@@ -19,7 +19,10 @@ RUN pip3 install --no-cache-dir -r /code/requirements.txt
 ENV XCTOOLS_VERSION_TAG v0.0.1
 
 RUN git clone https://github.com/ogosselet/xctools.git xctools && \
-    git --git-dir xctools/.git --work-tree=xctools checkout tags/$XCTOOLS_VERSION_TAG
+    git --git-dir xctools/.git --work-tree=xctools checkout tags/$XCTOOLS_VERSION_TAG && \
+    cd xctools && \
+    chmod +x xctools.py && \
+    ln -s $xctools/xctools.py /usr/bin/xctools
 
 ENV PATH "$PATH:/code/xctools/"
 
