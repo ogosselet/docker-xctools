@@ -8,8 +8,9 @@ cd /code
 cd /root
 clear
 figlet xcTools
-figlet -f digital "welcome to xcTools from branch "$
+figlet -f digital "Welcome to xcTools Edge"
 echo ""
+echo 'Running from branch '$XCTOOLS_BRANCH
 xctools --help
 echo ""
 # Set name of the theme to load. Optionally, if you set this to "random"
