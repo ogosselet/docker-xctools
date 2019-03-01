@@ -16,6 +16,7 @@ RUN yum update -y && \
 
 RUN pip3 install --no-cache-dir -r /code/requirements.txt
 
+ENV XCTOOLS_BRANCH dev
 ENV PATH "$PATH:/code/xctools/"
 
 CMD ["/usr/bin/zsh"]
