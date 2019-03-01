@@ -22,7 +22,7 @@ RUN git clone https://github.com/ogosselet/xctools.git xctools && \
     git --git-dir xctools/.git --work-tree=xctools checkout tags/$XCTOOLS_VERSION_TAG && \
     cd xctools && \
     chmod +x xctools.py && \
-    ln -s xctools/xctools.py /usr/bin/xctools
+    ln -s /code/xctools/xctools.py /usr/bin/xctools
 
 ENV PATH "$PATH:/code/xctools/"
 
