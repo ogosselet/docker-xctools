@@ -1,0 +1,41 @@
+#!/bin/sh
+
+XCTOOLS_DIR="/code/xctools/"
+
+mkdir $XCTOOLS_DIR
+
+git clone https://github.com/ogosselet/xctools.git $XCTOOLS_DIR
+
+if [[ -z "${XCTOOLS_BRANCH}" ]]; then
+
+  echo "Env XCTOOLS_BRANCH not defined - reverting to dev"
+  XCTOOLS_BRANCH='dev'
+
+else
+
+  BRANCH_IN_REPO=`git --git-dir $XCTOOLS_DIR/.git branch -a | grep -w remotes/origin/${XCTOOLS_BRANCH} | wc -l`
+
+  if [[ $BRANCH_IN_REPO -eq "0" ]]; then
+
+    echo "Branch ${XCTOOLS_BRANCH} not in repo - reverting to dev"
+    XCTOOLS_BRANCH='dev'
+
+  else
+
+    XCTOOLS_BRANCH=${XCTOOLS_BRANCH}
+
+  fi
+
+fi
+
+echo "Preparing docker XCTOOLS"
+
+git --git-dir $XCTOOLS_DIR/.git --work-tree=$XCTOOLS_DIR checkout -t origin/$XCTOOLS_BRANCH
+
+# Adding the xctools command
+cd $XCTOOLS_DIR
+chmod +x xctools.py
+ln -s $XCTOOLS_DIR/xctools.py /usr/bin/xctools
+
+
+
