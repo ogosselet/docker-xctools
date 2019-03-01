@@ -1,4 +1,4 @@
 # docker-xctools
 
-Very lite execution environment for the XCTools CLI utilities
+Execution environment for the XCTools CLI utilities
 
